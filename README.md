@@ -14,45 +14,30 @@ CultureNet - это сайт-платформа искусства и культ
 git clone https://github.com/anmicksi/CultureNet.git
 ```
 
-2. Создайте виртуальное окружение и активируйте его:
+2. Создайте виртуальное окружение и установите зависимости:
 ```
 python3 -m venv venv
 source venv/bin/activate
-```
-
-3. Установите зависимости:
-```
 pip install -r requirements.txt
 ```
 
-4. Создайте базу данных PostgreSQL и обновите файл `.env` с вашими настройками:
+3. Установите setuptools и wheel (если они еще не установлены):
 ```
-cp .env.example .env
-```
-
-5. Примените миграции:
-```
-python manage.py migrate
+pip install setuptools wheel
 ```
 
-6. Создайте суперпользователя:
+4. Соберите проект в пакет с помощью `setup.py`:
 ```
-python manage.py createsuperuser
-```
-
-7. Запустите сервер:
-```
-python manage.py runserver
+python setup.py sdist bdist_wheel
 ```
 
-## Запуск проекта
-
-Для запуска проекта выполните команду:
+5. Установите пакет из дистрибутивов, созданных на шаге 4:
 ```
-python manage.py runserver
+pip install dist/*
 ```
 
-Теперь вы можете открыть сайт в браузере.
+Теперь вы можете использовать свой проект как пакет, устанавливая его с помощью `pip`.
+
 
 ## Авторы
 
